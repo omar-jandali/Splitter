@@ -1,0 +1,19 @@
+{
+  "name": "splitified",
+  "version": "1.0.0",
+  "description": "Splitified is a group expense consolidation applicationt that will change the way friends and family split expenses and transfer money between each other.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omar-jandali/Splitter.git"
+  },
+  "author": "Omar Jandali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omar-jandali/Splitter/issues"
+  },
+  "homepage": "https://github.com/omar-jandali/Splitter#readme"
+}
