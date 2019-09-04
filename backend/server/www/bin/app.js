@@ -16,6 +16,7 @@ const Transaction = require('../../../database/models/Transaction');
 const Expense = require('../../../database/models/Expense');
 const Item = require('../../../database/models/Item');
 const Activity = require('../../../database/models/Activity')
+const Router = require('../../routers/UserRouter')
 
 
 const app = express();
@@ -25,6 +26,9 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(morgan('dev'));
+
+
+app.use('/api', Router)
 
 
 module.exports = app;
