@@ -9,22 +9,22 @@ const Item = database.define(
     "item",
     {
         id: {type: seq.INTEGER, primaryKey: true, autoIncrement: true},
-        location: {type: seq.STRING, allowNull: false, 
+        location: {type: seq.STRING, allowNull: false,
                    validate: {}
         },
-        description: {type: seq.TEXT, allowNull: true, 
+        description: {type: seq.TEXT, allowNull: true,
                 validate: {}
         },
-        amount: {type: seq.FLOAT(5, 2), allowNull: true, defaultValues: '0.00', 
+        amount: {type: seq.FLOAT(9, 2), allowNull: true, defaultValues: '0.00',
                 validate: {isFloat: true}
         },
-        verified: {type: seq.BOOLEAN, allowNull: false, defaultValues: false, 
-              validate: {isIn: [['0', '1']]}
+        verified: {type: seq.BOOLEAN, allowNull: false, defaultValues: false,
+              validate: {isIn: [['true', 'false']]}
         },
-        paid: {type: seq.BOOLEAN, allowNull: false, defaultValues: false, 
-              validate: {isIn: [['0', '1']]}
+        paid: {type: seq.BOOLEAN, allowNull: false, defaultValues: false,
+              validate: {isIn: [['true', 'false']]}
         },
-        reference: {type: seq.STRING, allowNull: false, 
+        reference: {type: seq.STRING, allowNull: false,
                  validate: {isAlphanumeric: true}
         },
     },
@@ -35,8 +35,8 @@ const Item = database.define(
 )
 
 
-Item.belongsTo(User, {as: 'Requester'});
-Item.belongsTo(User, {as: 'Requested'});
+Item.belongsTo(User, {as: 'requester'});
+Item.belongsTo(User, {as: 'requested'});
 Item.belongsTo(Group)
 Item.belongsTo(Expense)
 

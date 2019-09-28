@@ -1,10 +1,10 @@
-const { User } = require('../../database/models/User');
+const { Group } = require('../../database/models/Group');
 
 
 const controller = {
     get: (req, res) => {
         let user_id = req.params.id
-        User.findByPk(user_id)
+        Group.findByPk(user_id)
             .then((response) => {
                 res.status(200).send(response)
             })
@@ -14,19 +14,19 @@ const controller = {
     },
     post: (req, res) => {
         let data = req.body;
-        User.create(data)
+        Group.create(data)
             .then((response) => {
-                res.status(201).send('New User');
+                res.status(201).send('New Group');
             })
             .catch((err) => {
-                console.log("Creating a user error: " + JSON.stringify(err))
+                console.log("Creating a group error: " + JSON.stringify(err))
             })
     },
     patch: (req, res) => {
-        let user_id = req.params.id
-        User.findByPk(user_id)
-            .then((user) => {
-                user.update(req.body)
+        let group_id = req.params.id
+        Group.findByPk(group_id)
+            .then((group) => {
+                group.update(req.body)
                     .then((response) => {
                         res.status(202).send(response)
                     })
@@ -39,13 +39,13 @@ const controller = {
             })
     },
     delete: (req, res) => {
-        let user_id = req.params.id
-        User.findByPk(user_id)
-            .then((user) => {
-                let deletedUser = user.dataValues;
-                user.destroy()
+        let group_id = req.params.id
+        Group.findByPk(group_id)
+            .then((group) => {
+                let deletedUser = group.dataValues;
+                group.destroy()
                     .then(() => {
-                        res.status(204)
+                        res.status(204).send('Deleted Group')
                     })
                     .catch((err) => {
                         console.log('Deleting user error: ' + JSON.stringify(err))

@@ -11,7 +11,7 @@ const Friend = database.define(
                  validate: {isIn:[['Pending', 'Accepted']], isAlpha: true}
         },
         favorite: {type: seq.BOOLEAN, allowNull: false, defaultValues: false, 
-              validate: {isIn: [['0', '1']]}
+              validate: {isIn: [['true', 'false']]}
         },
     },
     {
@@ -21,8 +21,8 @@ const Friend = database.define(
 )
 
 
-Friend.belongsTo(User, {as: 'Friender'})
-Friend.belongsTo(User, {as: 'Friended'})
+Friend.belongsTo(User, {as: 'friender'})
+Friend.belongsTo(User, {as: 'friended'})
 
 
 database.sync()

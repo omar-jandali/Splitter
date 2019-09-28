@@ -23,7 +23,7 @@ const Group = database.define(
                  validate: {isAlphanumeric: true}
         },
         active: {type: seq.BOOLEAN, allowNull: false, defaultValues: false, 
-              validate: {isIn: [['0', '1']]}
+              validate: {isIn: [['true', 'false']]}
         },
     },
     {

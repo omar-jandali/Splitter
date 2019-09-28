@@ -26,16 +26,16 @@ const Profile = database.define(
                validate: {}
         },
         street: {type: seq.STRING, allowNull: false, 
-                 validate: {isAlphanumeric: true}
+                 validate: {}
         },
         city: {type: seq.STRING, allowNull: false, 
-                 validate: {isAlpha: true}
+                 validate: {}
         },
         state: {type: seq.STRING, allowNull: false, 
                 validate: {isIn: stateCodes, isAlpha: true}
         },
         country: {type: seq.STRING, allowNull: false, 
-                 validate: {isIn:[['United States of America']], isAlpha: true}
+                 validate: {isIn:[['United States of America']]}
         },
         zip: {type: seq.INTEGER, allowNull: false, 
               validate: {isNumeric: true, len: [5, 9]}

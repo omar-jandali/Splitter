@@ -8,7 +8,7 @@ const Member = database.define(
     "member",
     {
         id: {type: seq.INTEGER, primaryKey: true, autoIncrement: true},
-        balance: {type: seq.FLOAT(5, 2), allowNull: true, defaultValues: '0.00', 
+        balance: {type: seq.FLOAT(9, 2), allowNull: true, defaultValues: '0.00', 
                 validate: {isFloat: true}
         },
         open_tabs: {type: seq.INTEGER, allowNull: false, defaultValues: '0', 
@@ -18,10 +18,10 @@ const Member = database.define(
                  validate: {isAlphanumeric: true}
         },
         admin: {type: seq.BOOLEAN, allowNull: false, defaultValues: false, 
-              validate: {isIn: [['0', '1']]}
+              validate: {isIn: [['true', 'false']]}
         },
         active: {type: seq.BOOLEAN, allowNull: false, defaultValues: false, 
-              validate: {isIn: [['0', '1']]}
+              validate: {isIn: [['true', 'false']]}
         },
     },
     {
