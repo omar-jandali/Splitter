@@ -1,57 +1,57 @@
-const { Item } = require('../../database/models/Item');
+const { Transaction } = require('../../database/models/Transaction');
 
 
 const controller = {
     get: (req, res) => {
          let id = req.params.id
-        Item.findByPk(id)
+        Transaction.findByPk(id)
             .then((response) => {
                 res.status(200).send(response)
             })
             .catch((err) => {
-                console.log('Getting Expense by Id error: ' + JSON.stringify(err))
+                console.log('Getting Transaction by Id error: ' + JSON.stringify(err))
             })
     },
     post: (req, res) => {
         let data = req.body;
-        Item.create(data)
+        Transaction.create(data)
             .then((response) => {
-                res.status(201).send('New Item');
+                res.status(201).send('New Transaction');
             })
             .catch((err) => {
-                console.log("Creating an item error: " + JSON.stringify(err))
+                console.log("Creating an transaction error: " + JSON.stringify(err))
             })
     },
     patch: (req, res) => {
         let id = req.params.id
-        Item.findByPk(id)
-            .then((item) => {
-                item.update(req.body)
+        Transaction.findByPk(id)
+            .then((transaction) => {
+                transaction.update(req.body)
                     .then((response) => {
                         res.status(202).send(response)
                     })
                     .catch((err) => {
-                        console.log('updating expense by Id error: ' + JSON.stringify(err))
+                        console.log('updating transaction by Id error: ' + JSON.stringify(err))
                     })
             })
             .catch((err) => {
-                console.log('Getting expense by Id error: ' + JSON.stringify(err))
+                console.log('Getting transaction by Id error: ' + JSON.stringify(err))
             })
     },
     delete: (req, res) => {
         let id = req.params.id
-        Item.findByPk(id)
-            .then((item) => {
-                item.destroy()
+        Transaction.findByPk(id)
+            .then((transaction) => {
+                transaction.destroy()
                     .then(() => {
                         res.status(204)
                     })
                     .catch((err) => {
-                        console.log('Deleting item error: ' + JSON.stringify(err))
+                        console.log('Deleting transaction error: ' + JSON.stringify(err))
                     })
             })
             .catch((err) => {
-                console.log('Getting item by Id error: ' + JSON.stringify(err))
+                console.log('Getting transaction by Id error: ' + JSON.stringify(err))
             })
     }
 };

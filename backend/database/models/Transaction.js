@@ -8,10 +8,10 @@ const Transaction = database.define(
     "transaction",
     {
         id: {type: seq.INTEGER, primaryKey: true, autoIncrement: true},
-        amount: {type: seq.FLOAT(9, 2), allowNull: true, defaultValues: '0.00', 
+        amount: {type: seq.FLOAT(9, 2), allowNull: true, defaultValues: '0.00',
                 validate: {isFloat: true}
         },
-        description: {type: seq.TEXT, allowNull: true, 
+        description: {type: seq.TEXT, allowNull: true,
                 validate: {}
         },
     },

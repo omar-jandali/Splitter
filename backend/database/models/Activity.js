@@ -10,17 +10,17 @@ const Activity = database.define(
     "activity",
     {
         id: {type: seq.INTEGER, primaryKey: true, autoIncrement: true},
-        description: {type: seq.TEXT, allowNull: true, 
+        description: {type: seq.TEXT, allowNull: true,
                 validate: {}
         },
-        amount: {type: seq.FLOAT(5, 2), allowNull: true, defaultValues: '0.00', 
+        amount: {type: seq.FLOAT(5, 2), allowNull: true, defaultValues: '0.00',
                 validate: {isFloat: true}
         },
-        seen: {type: seq.BOOLEAN, allowNull: false, defaultValues: false, 
-              validate: {isIn: [['0', '1']]}
+        seen: {type: seq.BOOLEAN, allowNull: false, defaultValues: false,
+              validate: {isIn: [['true', 'false']]}
         },
-        verified: {type: seq.BOOLEAN, allowNull: false, defaultValues: false, 
-              validate: {isIn: [['0', '1']]}
+        verified: {type: seq.BOOLEAN, allowNull: false, defaultValues: false,
+              validate: {isIn: [['true', 'false']]}
         },
     },
     {

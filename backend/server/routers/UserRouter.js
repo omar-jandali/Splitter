@@ -6,6 +6,9 @@ const groupController = require('../controllers/GroupController')
 const memberController = require('../controllers/MemberController')
 const expenseController = require('../controllers/ExpenseController')
 const itemController = require('../controllers/ItemController')
+const accountController = require('../controllers/AccountCOntroller')
+const transactionController = require('../controllers/TransactionController')
+const activityController = require('../controllers/ActivityController')
 
 
 router.route('/user')
@@ -68,6 +71,35 @@ router.route('/expense/:id')
 
 router.route('/item')
   .post(itemController.post)
+
+router.route('/item/:id')
+  .get(itemController.get)
+  .patch(itemController.patch)
+  .delete(itemController.delete)
+
+router.route('/account')
+  .post(accountController.post)
+
+router.route('/account/:id')
+  .get(accountController.get)
+  .patch(accountController.patch)
+  .delete(accountController.delete)
+
+router.route('/transaction')
+  .post(transactionController.post)
+
+router.route('/transaction/:id')
+  .get(transactionController.get)
+  .patch(transactionController.patch)
+  .delete(transactionController.delete)
+
+router.route('/activity')
+  .post(activityController.post)
+
+router.route('/activity/:id')
+  .get(activityController.get)
+  .patch(activityController.patch)
+  .delete(activityController.delete)
 
 
 module.exports = router;
